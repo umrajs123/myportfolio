@@ -16,7 +16,9 @@ function App() {
       {/* Header Section */}
       <header className="bg-white shadow-md py-6">
         <nav className="container mx-auto flex justify-between items-center px-6">
-          <div className="text-2xl font-semibold text-blue-600">Adnan K Umraj</div>
+          <div className="w-24 h-24 rounded-full overflow-hidden border-3 border-gray-300 shadow-md -mt-6">
+            <img src="IMG_0230a.jpg" alt="Logo" className="w-full h-full object-cover object-center" />
+          </div>
           <div>
             <a href="#about" className="text-lg text-gray-700 mx-4 hover:text-blue-600">About</a>
             <a href="#projects" className="text-lg text-gray-700 mx-4 hover:text-blue-600">Projects</a>
