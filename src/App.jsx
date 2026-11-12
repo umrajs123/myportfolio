@@ -25,6 +25,42 @@ function ArrowIcon({ diagonal = false }) {
   )
 }
 
+function SocialIcon({ type }) {
+  if (type === 'github') {
+    return (
+      <svg className="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.75.08-.74.08-.74 1.2.08 1.83 1.23 1.83 1.23 1.07 1.84 2.8 1.31 3.49 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.95 0-1.31.47-2.38 1.23-3.22-.12-.3-.53-1.53.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.29-1.23 3.29-1.23.65 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.62-2.8 5.64-5.48 5.94.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.82.57A12.01 12.01 0 0 0 12 .5Z" />
+      </svg>
+    )
+  }
+
+  if (type === 'linkedin') {
+    return (
+      <svg className="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12Zm1.78 13.02H3.56V9h3.56v11.45ZM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0Z" />
+      </svg>
+    )
+  }
+
+  if (type === 'gmail') {
+    return (
+      <svg className="social-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path fill="#4285F4" d="M2 5.2V20a2 2 0 0 0 2 2h3V10L2 5.2Z" />
+        <path fill="#34A853" d="M17 22h3a2 2 0 0 0 2-2V5.2L17 10v12Z" />
+        <path fill="#FBBC04" d="M17 5.2V10l5-3.9V4a2 2 0 0 0-3.2-1.6L17 5.2Z" />
+        <path fill="#EA4335" d="M2 4v2.1L7 10V5.2L4.2 2.4A2 2 0 0 0 2 4Z" />
+        <path fill="#C5221F" d="m7 10 5 4 5-4V5.2l-5 4-5-4V10Z" />
+      </svg>
+    )
+  }
+
+  return (
+    <svg className="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path fillRule="evenodd" d="M12.04 0C5.42 0 .04 5.37.04 11.99c0 2.11.55 4.17 1.6 5.98L0 24l6.2-1.63a11.96 11.96 0 0 0 5.84 1.51h.01c6.62 0 12-5.38 12-12 0-3.21-1.25-6.23-3.52-8.5A11.92 11.92 0 0 0 12.04 0Zm0 21.84h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.68.96.98-3.59-.24-.37a9.88 9.88 0 0 1-1.52-5.26c0-5.44 4.43-9.87 9.88-9.87 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.43 9.88-9.89 9.88Zm5.42-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.91-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37s-1.04 1.02-1.04 2.48 1.06 2.88 1.21 3.08c.15.2 2.09 3.2 5.07 4.49.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z" />
+    </svg>
+  )
+}
+
 function CustomCursor() {
   const cursorRef = useRef(null)
 
@@ -328,12 +364,67 @@ function App() {
         </main>
 
         <footer className="site-footer section-shell">
-          <a className="brand footer-brand" href="#home" data-cursor="Top">AK<span>.</span></a>
-          <p>Designed with intent. Built with care.</p>
-          <div className="footer-links">
-            <a href="https://github.com/umrajs123" target="_blank" rel="noopener noreferrer" data-cursor="Visit">GitHub</a>
-            <a href="https://www.linkedin.com/in/iamumraj" target="_blank" rel="noopener noreferrer" data-cursor="Visit">LinkedIn</a>
-            <span>© {new Date().getFullYear()} Adnan K Umraj</span>
+          <div className="footer-panel">
+            <div className="footer-main">
+              <div className="footer-intro">
+                <a className="brand footer-brand" href="#home" aria-label="Adnan K Umraj, back to top" data-cursor="Top">
+                  AK<span>.</span>
+                </a>
+                <p className="footer-tagline">
+                  Thoughtful websites.<br />
+                  Digital experiences that connect.
+                </p>
+                <a className="footer-availability" href="mailto:umrajs123@gmail.com" data-cursor="Email">
+                  <span className="footer-availability-dot" />
+                  Available for select projects
+                </a>
+              </div>
+
+              <div className="footer-column">
+                <p className="footer-label">EXPLORE</p>
+                <nav className="footer-navigation" aria-label="Footer navigation">
+                  <a href="#about" data-cursor="About">About</a>
+                  <a href="#projects" data-cursor="Work">Selected work</a>
+                  <a href="#approach" data-cursor="Approach">My approach</a>
+                  <a href="#faq" data-cursor="FAQs">FAQs</a>
+                  <a href="#contact" data-cursor="Contact">Contact</a>
+                </nav>
+              </div>
+
+              <div className="footer-column footer-connect">
+                <p className="footer-label">LET&apos;S CONNECT</p>
+                <div className="footer-socials">
+                  <a className="footer-social-link" href="https://github.com/umrajs123" target="_blank" rel="noopener noreferrer" data-cursor="Visit">
+                    <SocialIcon type="github" />
+                    <span>GitHub</span>
+                    <ArrowIcon diagonal />
+                  </a>
+                  <a className="footer-social-link" href="https://www.linkedin.com/in/iamumraj" target="_blank" rel="noopener noreferrer" data-cursor="Visit">
+                    <SocialIcon type="linkedin" />
+                    <span>LinkedIn</span>
+                    <ArrowIcon diagonal />
+                  </a>
+                  <a className="footer-social-link" href="mailto:umrajs123@gmail.com" data-cursor="Email">
+                    <SocialIcon type="gmail" />
+                    <span>Gmail</span>
+                    <ArrowIcon diagonal />
+                  </a>
+                  <a className="footer-social-link" href="https://wa.me/923433946559" target="_blank" rel="noopener noreferrer" data-cursor="Chat">
+                    <SocialIcon type="whatsapp" />
+                    <span>WhatsApp</span>
+                    <ArrowIcon diagonal />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="footer-bottom">
+              <span>© {new Date().getFullYear()} Adnan K Umraj. All rights reserved.</span>
+              <span className="footer-location"><span aria-hidden="true">✳</span> Based in Pakistan · Working everywhere</span>
+              <a className="footer-back-to-top" href="#home" data-cursor="Top">
+                Back to top <span aria-hidden="true">↑</span>
+              </a>
+            </div>
           </div>
         </footer>
       </div>
