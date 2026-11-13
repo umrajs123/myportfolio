@@ -4,6 +4,8 @@ import 'aos/dist/aos.css'
 import portrait from './assets/adnan.jpeg'
 import campusPreview from './assets/digital-campus.jpg'
 import medinovaPreview from './assets/medinova-product.webp'
+import akuLogo from './assets/aku-logo.png'
+import akuLogoLight from './assets/aku-logo-light.png'
 import './App.css'
 
 const projectUrl = 'https://www.site.digitalcampuspro.com/'
@@ -113,8 +115,8 @@ function App() {
 
         <header className="site-header">
           <nav className="header-inner" aria-label="Main navigation">
-            <a className="brand" href="#home" aria-label="Adnan K Umraj, home" data-cursor="Home">
-              AK<span>.</span>
+            <a className="brand header-brand" href="#home" aria-label="Adnan K Umraj, home" data-cursor="Home">
+              <img src={akuLogo} alt="" />
             </a>
             <div className="nav-links">
               <a href="#home" data-cursor="Home">Home</a>
@@ -309,6 +311,17 @@ function App() {
           </div>
         </section>
 
+        <section className="contact section-shell" id="contact" data-aos="fade-up">
+          <div className="contact-topline"><span>HAVE A GOOD IDEA?</span><span>LET&apos;S MAKE IT REAL <i>✳</i></span></div>
+          <h2>Let&apos;s make<br /><em>something matter.</em></h2>
+          <div className="contact-bottom">
+            <p>Have a project in mind or just want to say hello? My inbox is open.</p>
+            <a className="button button-light" href="mailto:umrajs123@gmail.com" data-cursor="Email me">
+              Start a conversation <ArrowIcon diagonal />
+            </a>
+          </div>
+        </section>
+
         <section className="faq section-shell section-space" id="faq" data-aos="fade-up">
           <div className="faq-heading">
             <p className="eyebrow"><span className="eyebrow-line" /> A FEW ANSWERS</p>
@@ -350,17 +363,6 @@ function App() {
             </details>
           </div>
         </section>
-
-        <section className="contact section-shell" id="contact" data-aos="fade-up">
-          <div className="contact-topline"><span>HAVE A GOOD IDEA?</span><span>LET&apos;S MAKE IT REAL <i>✳</i></span></div>
-          <h2>Let&apos;s make<br /><em>something matter.</em></h2>
-          <div className="contact-bottom">
-            <p>Have a project in mind or just want to say hello? My inbox is open.</p>
-            <a className="button button-light" href="mailto:umrajs123@gmail.com" data-cursor="Email me">
-              Start a conversation <ArrowIcon diagonal />
-            </a>
-          </div>
-        </section>
         </main>
 
         <footer className="site-footer section-shell">
@@ -368,7 +370,7 @@ function App() {
             <div className="footer-main">
               <div className="footer-intro">
                 <a className="brand footer-brand" href="#home" aria-label="Adnan K Umraj, back to top" data-cursor="Top">
-                  AK<span>.</span>
+                  <img src={akuLogoLight} alt="" />
                 </a>
                 <p className="footer-tagline">
                   Thoughtful websites.<br />

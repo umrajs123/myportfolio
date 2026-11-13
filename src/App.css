@@ -92,15 +92,16 @@ button:focus-visible {
 }
 
 .brand {
-  color: var(--ink);
-  font-family: var(--display-font);
-  font-size: 1.8rem;
-  font-weight: 900;
-  letter-spacing: -0.1em;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  line-height: 0;
 }
 
-.brand span {
-  color: var(--accent);
+.header-brand img {
+  display: block;
+  width: clamp(96px, 8vw, 118px);
+  height: auto;
 }
 
 .nav-links {
@@ -971,6 +972,7 @@ a:hover .arrow-icon {
 .contact {
   position: relative;
   overflow: hidden;
+  box-sizing: border-box;
   margin-top: 16px;
   margin-bottom: 80px;
   padding: 54px 60px 48px;
@@ -1091,9 +1093,13 @@ a:hover .arrow-icon {
 }
 
 .footer-brand {
-  display: inline-block;
-  color: #fff;
-  font-size: 1.8rem;
+  margin-bottom: 2px;
+}
+
+.footer-brand img {
+  display: block;
+  width: clamp(138px, 13vw, 158px);
+  height: auto;
 }
 
 .footer-tagline {
@@ -1413,6 +1419,10 @@ a:hover .arrow-icon {
   .nav-links a[href="#home"],
   .nav-links a[href="#approach"] {
     display: none;
+  }
+
+  .header-brand img {
+    width: clamp(64px, 19vw, 78px);
   }
 
   .availability {
