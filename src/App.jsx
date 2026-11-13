@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import portrait from './assets/adnan.jpeg'
@@ -63,6 +63,67 @@ function SocialIcon({ type }) {
   )
 }
 
+function WelcomeScreen({ onDismiss }) {
+  const skipButtonRef = useRef(null)
+
+  useEffect(() => {
+    skipButtonRef.current?.focus({ preventScroll: true })
+  }, [])
+
+  function handleKeyDown(event) {
+    if (event.key === 'Escape') {
+      onDismiss()
+    } else if (event.key === 'Tab') {
+      event.preventDefault()
+      skipButtonRef.current?.focus()
+    }
+  }
+
+  return (
+    <div
+      className="welcome-screen"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="welcome-title"
+      aria-describedby="welcome-description"
+      onKeyDown={handleKeyDown}
+    >
+      <div className="welcome-content">
+        <div className="welcome-mark">
+          <img src={akuLogo} alt="" />
+          <span aria-hidden="true">✳</span>
+        </div>
+        <p className="welcome-eyebrow">
+          <span />
+          ADNAN K UMRAJ <i>·</i> WEB DEVELOPER
+          <span />
+        </p>
+        <h1 className="welcome-title" id="welcome-title">
+          Thoughtful websites.
+          <br />
+          <em>Made to matter.</em>
+        </h1>
+        <p className="welcome-description" id="welcome-description">
+          Digital experiences, built with purpose and a little extra care.
+        </p>
+        <div className="welcome-progress" aria-hidden="true">
+          <span />
+        </div>
+        <p className="welcome-caption">A MOMENT TO EXPLORE</p>
+        <button
+          ref={skipButtonRef}
+          className="welcome-skip"
+          type="button"
+          onClick={onDismiss}
+        >
+          Skip intro <ArrowIcon diagonal />
+        </button>
+      </div>
+      <span className="welcome-corner" aria-hidden="true">DESIGN <i>·</i> BUILD <i>·</i> DELIVER</span>
+    </div>
+  )
+}
+
 function CustomCursor() {
   const cursorRef = useRef(null)
 
@@ -103,14 +164,34 @@ function CustomCursor() {
 }
 
 function App() {
+  const [showWelcome, setShowWelcome] = useState(true)
+  const mainRef = useRef(null)
+
+  const dismissWelcome = useCallback(() => {
+    setShowWelcome(false)
+    window.requestAnimationFrame(() => {
+      mainRef.current?.focus({ preventScroll: true })
+    })
+  }, [])
+
   useEffect(() => {
     AOS.init({ duration: 750, easing: 'ease-out-cubic', once: true, offset: 70 })
   }, [])
 
+  useEffect(() => {
+    if (!showWelcome) return undefined
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const timeout = window.setTimeout(dismissWelcome, prefersReducedMotion ? 700 : 2600)
+
+    return () => window.clearTimeout(timeout)
+  }, [dismissWelcome, showWelcome])
+
   return (
     <>
       <CustomCursor />
-      <div className="site-shell">
+      {showWelcome && <WelcomeScreen onDismiss={dismissWelcome} />}
+      <div className="site-shell" inert={showWelcome}>
         <a className="skip-link" href="#main">Skip to content</a>
 
         <header className="site-header">
@@ -134,7 +215,7 @@ function App() {
           </nav>
         </header>
 
-        <main id="main">
+        <main id="main" ref={mainRef} tabIndex={-1}>
         <section className="hero section-shell" id="home">
           <div className="hero-copy">
             <p className="eyebrow"><span className="eyebrow-line" /> WEB DEVELOPER <span className="eyebrow-separator">/</span> DIGITAL CRAFT</p>
@@ -142,6 +223,10 @@ function App() {
               I build
               <br />
               <span className="headline-accent">websites</span>
+              <br />
+              <span className="headline-support">
+                <span aria-hidden="true">✳</span> and applications
+              </span>
               <br />
               that work for <em>you.</em>
             </h1>
@@ -172,11 +257,11 @@ function App() {
             <div className="portrait-glow" />
             <div className="portrait-frame">
               <img src={portrait} alt="Portrait of Adnan K Umraj" className="portrait-image" />
-              <div className="portrait-caption">
-                <span className="caption-mark">AK</span>
-                <span><strong>Adnan K Umraj</strong><small>Web developer</small></span>
-                <span className="caption-star" aria-hidden="true">✳</span>
-              </div>
+            </div>
+            <div className="portrait-caption">
+              <span className="caption-mark">AK</span>
+              <span><strong>Adnan K Umraj</strong><small>Web developer</small></span>
+              <span className="caption-star" aria-hidden="true">✳</span>
             </div>
             <div className="orbit-sticker" aria-label="Design, build, deliver">
               <svg viewBox="0 0 120 120" aria-hidden="true">
@@ -378,7 +463,7 @@ function App() {
                 </p>
                 <a className="footer-availability" href="mailto:umrajs123@gmail.com" data-cursor="Email">
                   <span className="footer-availability-dot" />
-                  Available for select projects
+                  Currently open to new projects
                 </a>
               </div>
 
