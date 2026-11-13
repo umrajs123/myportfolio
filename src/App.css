@@ -591,7 +591,9 @@ a:hover .arrow-icon {
 .hero-socials {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 20px;
+  row-gap: 12px;
   margin-top: 62px;
   color: var(--muted);
 }
@@ -649,7 +651,7 @@ a:hover .arrow-icon {
 .portrait-frame {
   position: relative;
   z-index: 1;
-  height: clamp(350px, min(42vw, calc(100vh - 300px)), 520px);
+  height: clamp(350px, min(42vw, calc(100vh - 250px)), 560px);
   overflow: hidden;
   border: 7px solid rgba(255, 255, 255, 0.78);
   border-radius: 48% 48% 24px 24px;
@@ -672,18 +674,20 @@ a:hover .arrow-icon {
 }
 
 .portrait-caption {
-  position: relative;
-  z-index: 1;
+  position: absolute;
+  z-index: 2;
+  right: 12px;
+  bottom: 12px;
+  left: 12px;
   display: flex;
-  width: calc(100% - 24px);
   align-items: center;
   gap: 12px;
-  margin: 16px auto 0;
   padding: 13px;
   border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 14px;
   color: white;
-  background: var(--ink);
+  background: rgba(20, 20, 31, 0.88);
+  backdrop-filter: blur(14px);
   box-shadow: 0 12px 30px rgba(23, 26, 39, 0.12);
 }
 
@@ -1674,7 +1678,7 @@ a:hover .arrow-icon {
   }
 
   .portrait-frame {
-    height: clamp(260px, min(32vw, calc(100vh - 260px)), 380px);
+    height: clamp(360px, min(36vw, calc(100vh - 260px)), 460px);
   }
 }
 

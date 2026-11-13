@@ -250,6 +250,12 @@ function App() {
               <a href="https://www.linkedin.com/in/iamumraj" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" data-cursor="Visit">
                 LinkedIn <ArrowIcon diagonal />
               </a>
+              <a href="mailto:umrajs123@gmail.com" aria-label="Gmail" data-cursor="Email">
+                Gmail <ArrowIcon diagonal />
+              </a>
+              <a href="https://wa.me/923433946559" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" data-cursor="Chat">
+                WhatsApp <ArrowIcon diagonal />
+              </a>
             </div>
           </div>
 
@@ -257,11 +263,11 @@ function App() {
             <div className="portrait-glow" />
             <div className="portrait-frame">
               <img src={portrait} alt="Portrait of Adnan K Umraj" className="portrait-image" />
-            </div>
-            <div className="portrait-caption">
-              <span className="caption-mark">AK</span>
-              <span><strong>Adnan K Umraj</strong><small>Web developer</small></span>
-              <span className="caption-star" aria-hidden="true">✳</span>
+              <div className="portrait-caption">
+                <span className="caption-mark">AK</span>
+                <span><strong>Adnan K Umraj</strong><small>Web developer</small></span>
+                <span className="caption-star" aria-hidden="true">✳</span>
+              </div>
             </div>
             <div className="orbit-sticker" aria-label="Design, build, deliver">
               <svg viewBox="0 0 120 120" aria-hidden="true">
