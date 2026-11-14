@@ -930,6 +930,10 @@ a:hover .arrow-icon {
   background: linear-gradient(135deg, #20332f, #1b1d2b 75%);
 }
 
+.project-card-campus {
+  background: linear-gradient(135deg, #203047, #1b1d2b 75%);
+}
+
 .project-copy {
   display: flex;
   flex-direction: column;

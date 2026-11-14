@@ -3,6 +3,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import portrait from './assets/adnan.jpeg'
 import campusPreview from './assets/digital-campus.jpg'
+import digitalCampusProPreview from './assets/digital-campus-pro.jpg'
 import medinovaPreview from './assets/medinova-product.webp'
 import akuLogo from './assets/aku-logo.png'
 import akuLogoLight from './assets/aku-logo-light.png'
@@ -321,7 +322,7 @@ function App() {
               <p className="eyebrow"><span className="eyebrow-line" /> SELECTED WORK</p>
               <h2>Made with <em>purpose.</em></h2>
             </div>
-            <span className="project-count">02 / SELECTED PROJECTS</span>
+            <span className="project-count">03 / SELECTED PROJECTS</span>
           </div>
 
           <article className="project-card">
@@ -372,6 +373,31 @@ function App() {
             <a className="project-image-link" href="https://medinova.pk/" target="_blank" rel="noopener noreferrer" aria-label="Visit Medi Nova website" data-cursor="Open">
               <img src={medinovaPreview} alt="Medi Nova Bio One Vitamin C serum" className="project-image" />
               <span className="image-location">MEDI NOVA · SKIN HEALTH</span>
+              <span className="image-arrow"><ArrowIcon diagonal /></span>
+            </a>
+          </article>
+          <article className="project-card project-card-campus">
+            <div className="project-copy">
+              <div className="project-meta"><span>03</span><span>EDTECH · UNIVERSITY ERP</span></div>
+              <div>
+                <p className="project-kicker">DIGITAL CAMPUS PLATFORM</p>
+                <h3>Digital<br />Campus Pro</h3>
+                <p className="project-description">
+                  A cloud-based university management ERP bringing academic
+                  operations together through 21+ integrated modules, AI
+                  support, and a mobile app.
+                </p>
+              </div>
+              <div className="project-bottom">
+                <div className="project-tags"><span>Cloud ERP</span><span>Education</span></div>
+                <a className="project-link" href="https://digitalcampuspro.com/" target="_blank" rel="noopener noreferrer" data-cursor="View">
+                  Visit live site <ArrowIcon diagonal />
+                </a>
+              </div>
+            </div>
+            <a className="project-image-link" href="https://digitalcampuspro.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Digital Campus Pro website" data-cursor="Open">
+              <img src={digitalCampusProPreview} alt="Digital Campus Pro university ERP dashboards across desktop, laptop, tablet, and mobile" className="project-image" />
+              <span className="image-location">DIGITAL CAMPUS PRO · UNIVERSITY ERP</span>
               <span className="image-arrow"><ArrowIcon diagonal /></span>
             </a>
           </article>
